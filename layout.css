@@ -10,6 +10,7 @@
     border-color: rgb(174, 171, 171);
     background-color: white;
     border-width: 2px;
+    position: relative;
 }
 
 .day-titles{
@@ -27,6 +28,7 @@
 
 .month-container{
     padding-top: 0px;
+    
 }
 .month-title{
     text-align: center;
@@ -39,7 +41,6 @@
     display: flex;
     align-items: center;
     border:solid;
-
 }
 
 .change-month{
@@ -49,4 +50,14 @@
     cursor: pointer;
     border: solid;  
     
+}
+
+.number{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top: solid;
+    border-left: solid;
+    border-bottom: solid;
+    border-color: rgb(174, 171, 171);
 }
