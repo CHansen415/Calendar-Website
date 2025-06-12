@@ -1,0 +1,63 @@
+.week-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    height: 100px;
+}
+
+.day{
+    border-bottom: solid;
+    border-right: solid;
+    border-color: rgb(174, 171, 171);
+    background-color: white;
+    border-width: 2px;
+    position: relative;
+}
+
+.day-titles{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.days-label{
+    text-align: end;
+    border-bottom: solid;
+    border-width: 10px;
+    border-color: rgb(174, 171, 171);
+    padding-bottom: 0px;
+}
+
+.month-container{
+    padding-top: 0px;
+    
+}
+.month-title{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    border:solid;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    border:solid;
+}
+
+.change-month{
+    font-size: 15px;
+    margin-left: 550px;
+    margin-right: 20px;
+    cursor: pointer;
+    border: solid;  
+    
+}
+
+.number{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top: solid;
+    border-left: solid;
+    border-bottom: solid;
+    border-color: rgb(174, 171, 171);
+}
