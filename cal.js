@@ -8,6 +8,9 @@ Steps for Algo:
     
 */
 
+
+// This file is for handling the task management 
+
 const popMenuButton = document.querySelectorAll('.day');
 
 popMenuButton.forEach((day) => {
@@ -25,7 +28,7 @@ popMenuButton.forEach((day) => {
 
     taskContainer.style.display = "block";
     day.addEventListener('click', ()=>{
-        input = prompt("enter task: ", "Your Mom LOLOLO");
+        input = prompt("enter task: ", "Enter Task");
         if(!input){
             return;
         }
