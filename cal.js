@@ -10,41 +10,53 @@ Steps for Algo:
 
 
 // This file is for handling the task management 
+export function setTaskListeners(){
+    const popMenuButton = document.querySelectorAll('.day');
 
-const popMenuButton = document.querySelectorAll('.day');
+    popMenuButton.forEach((day) => {
+        // Avoid duplicate containers
+        if (day.querySelector('.task-container')) return;
 
-popMenuButton.forEach((day) => {
-    const taskContainer = document.createElement('div');
-    taskContainer.classList.add("task-container");
-    taskContainer.style.display = "none";
+        const taskContainer = document.createElement('div');
+        taskContainer.classList.add("task-container");
+        taskContainer.style.display = "none";
 
-    const taskList = document.createElement('ul');
-    taskList.classList.add('task-list');
+        const taskList = document.createElement('ul');
+        taskList.classList.add('task-list');
 
-    taskContainer.appendChild(taskList);
-    day.appendChild(taskContainer); 
+        taskContainer.appendChild(taskList);
+        day.appendChild(taskContainer); 
 
-    let input;
+        taskContainer.style.display = "block";
 
-    taskContainer.style.display = "block";
-    day.addEventListener('click', ()=>{
-        input = prompt("enter task: ", "Enter Task");
-        if(!input){
-            return;
-        }
-        const li = document.createElement('li');
-        li.textContent = input;
+        // Add click listener to the day only once
+        day.addEventListener('click', ()=> {
+            const input = prompt("Enter task:", "Enter Task");
+            if (!input) return;
 
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = "X";
-        deleteButton.classList.add("delete-item-btn");
-        deleteButton.addEventListener("click", (event)=>{
-            event.stopPropagation();
-            li.remove();
+            const li = document.createElement('li');
+            li.textContent = input;
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = "X";
+            deleteButton.classList.add("delete-item-btn");
+            deleteButton.addEventListener("click", (event) => {
+                event.stopPropagation(); // prevent triggering day click again
+                li.remove();
+            });
+
+            li.appendChild(deleteButton);
+            taskList.appendChild(li);
         });
-
-        li.appendChild(deleteButton);
-        taskList.appendChild(li);
     });
+}
 
-});
+
+function saveLocalData(){
+    
+}
+
+
+function getLocalData(){
+
+}

@@ -1,7 +1,7 @@
 .week-container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    height: 100px;
+    
 }
 
 .day{
@@ -28,7 +28,12 @@
 
 .month-container{
     padding-top: 0px;
-    
+    height: 550px;
+    border-top: solid;
+    border-top-color: rgb(174, 171, 171);
+    border-left: solid;
+    border-left-color: rgb(174, 171, 171);
+    margin-bottom: 1000px;
 }
 .month-title{
     text-align: center;
@@ -56,4 +61,11 @@
     border-left: solid;
     border-bottom: solid;
     border-color: rgb(174, 171, 171);
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+
+.inactive{
+    opacity: .6;
 }
