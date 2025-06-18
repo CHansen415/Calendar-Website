@@ -1,7 +1,7 @@
 // this file will be made for generating the html of the calendar by JavaScript with the use of DayJS
 import { setTaskListeners } from "./cal.js";
 
-let currentDate = new dayjs(); // initialize the current day var
+export let currentDate = new dayjs(); // initialize the current day var
 let numberOfWeeks;
 
 let currentMonth = currentDate.format("MMMM YYYY");
@@ -114,24 +114,39 @@ function generateNumbers(currentDay){
     let daysLastMonth = prevMonth.daysInMonth();
     otherDays = daysLastMonth - (dayOne-1);
 
+    let fullDate;
 
-    //get the starting point for days next month
     
     for(let i = 0; i< numOfDivs.length; i++){
         if(i < dayOne){ // if day is not part of current month I just don't add a number to it
             numOfDivs[i].textContent = otherDays;
             numOfDivs[i].classList.add('inactive');
+
+            fullDate = prevMonth.year() + '-' + String(prevMonth.month() + 1).padStart(2, '0') + String(otherDays).padStart(2, '0');
+
             otherDays++;
         }
         else if(day > totalDays){
             numOfDivs[i].classList.add('inactive');
             numOfDivs[i].textContent = otherDays2;
+
+            let nextMonth = currentDay.add(1, 'month');
+            fullDate = nextMonth.year() + '-' + String(nextMonth.month() + 1).padStart(2, '0') + String(otherDays2).padStart(2, '0');
+
             otherDays2++;
         }
         else{
             numOfDivs[i].textContent = day;
             numOfDivs[i].classList.remove('inactive');
+
+            fullDate = currentDay.year() + '-' + String(currentDay.month() + 1).padStart(2, '0') + String(day).padStart(2, '0');
+
             day++;
+        }
+
+        const dayElement = numOfDivs[i].closest('.day');
+        if(dayElement){
+            dayElement.dataset.date = fullDate;
         }
     }
 
